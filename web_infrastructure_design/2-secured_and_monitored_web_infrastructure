@@ -1,0 +1,23 @@
+                         User’s Browser
+                               |
+                    HTTPS request for www.foobar.com
+                               |
+                          Firewall #1
+                               |
+                     +----------------------+
+                     |   HAProxy Load Bal   |
+                     |  SSL Termination     |
+                     |  Monitoring Client   |
+                     +----------+-----------+
+                               |
+                +--------------+----------------+
+                |                               |
+          Firewall #2                      Firewall #3
+                |                               |
+       +------------------+           +------------------+
+       | App Server 1     |           | App Server 2     |
+       | Nginx + App Svr  |           | Nginx + App Svr  |
+       | App Code         |           | App Code         |
+       | MySQL Primary    |---rep---->| MySQL Replica    |
+       | Monitoring       |           | Monitoring       |
+       +------------------+           +------------------+
