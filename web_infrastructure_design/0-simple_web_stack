@@ -1,0 +1,26 @@
+                     User's Browser
+                           |
+                    DNS Lookup: www.foobar.com
+                           |
+                      DNS Server
+                           |
+                   Returns IP: 8.8.8.8
+                           |
+                      HTTP/HTTPS
+                           |
+                    +------------------+
+                    |    SERVER        |   <-- Single Machine (SPOF)
+                    |   (8.8.8.8)      |
+                    |------------------|
+                    | Nginx (Web Svr)  |
+                    |------------------|
+                    | App Server       |
+                    |------------------|
+                    | Application Code |
+                    |------------------|
+                    | MySQL Database   |
+                    +------------------+
+                           |
+                        Response
+                           |
+                     User’s Browser
