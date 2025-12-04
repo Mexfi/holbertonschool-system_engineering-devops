@@ -1,0 +1,23 @@
+                      User's Browser
+                             |
+                   DNS: www.foobar.com
+                             |
+                       Returns IP of
+                       Load Balancer
+                             |
+                       HTTP/HTTPS
+                             |
+                  +----------------------+
+                  |   HAProxy Load Bal   |
+                  | Dist. Alg: RoundRobin|
+                  +----------+-----------+
+                             |
+             +---------------+----------------+
+             |                                |
+     +---------------+                 +---------------+
+     |  App Server 1 |                 |  App Server 2 |
+     | (Nginx)       |                 | (Nginx)       |
+     | (App Server)  |                 | (App Server)  |
+     | (App Code)    |                 | (App Code)    |
+     | MySQL Primary |----Replication--| MySQL Replica |
+     +---------------+                 +---------------+
